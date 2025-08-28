@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sept3rd的空间</title>
+    <style>
+        body {
+            font-family: "SimSun", "宋体", serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-size: 24px; /* 增大字体 */
+            color: black; /* 添加: 设置字体颜色为黑色 */
+        }
+        .top-1 a {
+            font-size: 40px; /* 进一步增大标题字体 */
+            text-decoration: none; /* 去除链接下划线 */
+            color: black; /* 添加: 设置链接字体颜色为黑色 */
+        }
+        /* 添加: 设置导航链接样式 */
+        .top-2 a {
+            color: black;
+            text-decoration: none;
+            position: relative;
+            padding: 5px 0;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        /* 添加: 为导航链接添加悬停动效 */
+        .top-2 a::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: rgb(10, 7, 5);
+            transition: width 0.3s ease;
+        }
+        
+        .top-2 a:hover::before {
+            width: 100%;
+        }
+        
+        /* 添加: 左右布局样式 */
+        .content-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px 0;
+        }
+        
+        .text-section {
+            flex: 1;
+            padding-right: 20px;
+        }
+        
+        .image-section {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        /* 响应式设计: 在小屏幕上改为垂直布局 */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+            }
+            
+            .text-section {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<script>
+
+
+
+
+
+
+</script>
+<body>
+    <!-- 顶部导航栏 -->
+        <div class="top-1">
+            <a href="#" >Sept3rd的空间</a>
+        </div>
+        <div class="top-2">
+            <a href="#">主页</a>
+            <a href="#">文章</a>
+            <a href="#">关于</a>
+        </div>
+    <!-- 内容区 -->
+
+        <!--网站介绍 -->
+        <div class="content-container">
+            <div class="text-section">
+                <h2>我的作品</h2>
+                <p>这是我的代表作品展示区域。在这里，我会分享我的创作理念和设计思路。通过不断的实践和探索，我逐渐形成了自己的风格和特色。</p>
+                <p>这幅作品是我最近完成的项目，灵感来源于日常生活中的细节观察。我希望通过这种表达方式，能够传递出我对美的理解和追求。</p>
+            </div>
+            <div class="image-section">
+                <img src=" " alt="示例图片">
+            </div>
+        </div>
+
+        <!-- 分割线 -->
+        <hr style="width: 80%; margin: 30px auto; border: 1px solid #ccc;">
+
+        <!-- 最新文章 -->
+
+
+    <!-- 底栏 -->
+    <div style="background-color: #000; color: #fff; width: 100%; text-align: center; padding: 7px; margin-top: auto; font-size: 14px;">
+        <p>&copy; 2023 Sept3rd的空间. All rights reserved.</p>
+    </div>
+
+
+</body>
+</html>
