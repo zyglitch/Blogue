@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文章目录 - Sept3rd的空间</title>
-    <link rel="stylesheet" href="../css/page-style.css">
+    <link rel="stylesheet" href="../css/articles-style.css">
 </head>
 <body>
     <!-- 顶部导航栏 -->
@@ -21,21 +21,8 @@
     <div class="content-container">
         <h1>文章目录</h1>
         
-        <div class="article-list">
-            <div class="article-item">
-                <h2><a href="page1.html">矿泉水晃一下就结冰</a></h2>
-                <p class="article-summary">解释了矿泉水晃动后结冰的科学原理，涉及过冷现象和结晶过程。</p>
-                <p class="article-meta">发布于 2023年10月15日</p>
-            </div>
-            
-            <!-- 可以继续添加更多文章项 -->
-            <!--
-            <div class="article-item">
-                <h2><a href="page2.html">另一篇文章标题</a></h2>
-                <p class="article-summary">文章简要介绍...</p>
-                <p class="article-meta">发布于 2023年10月20日</p>
-            </div>
-            -->
+        <div class="article-list" id="articleList">
+            <!-- 文章列表将通过JavaScript动态生成 -->
         </div>
     </div>
     
@@ -43,5 +30,7 @@
     <div class="back-link">
         <a href="index.html">返回主页</a>
     </div>
+
+    <script src="../js/articles.js"></script>
 </body>
 </html>
