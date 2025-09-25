@@ -81,6 +81,41 @@
     padding: 20px 0;
 }
 
+/* 标签样式 */
+.article-tags {
+    margin: 10px 0;
+}
+
+.article-tags .tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 3px 6px;
+    margin: 2px 3px 2px 0;
+    border-radius: 3px;
+    font-size: 12px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.article-tags .tag:hover {
+    background-color: #e0e0e0;
+}
+
+/* 文章元信息样式增强 */
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.article-meta .date,
+.article-meta .author {
+    color: #666;
+    font-size: 16px;
+}
+
 .article-item:last-child {
     border-bottom: none;
 }

@@ -115,6 +115,141 @@ body {
     width: 100%;
 }
 
+/* 文章头部样式 */
+.article-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.article-header h1 {
+    margin-bottom: 15px;
+}
+
+.article-header .article-meta {
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 16px;
+}
+
+.article-header .article-meta .date,
+.article-header .article-meta .author {
+    margin-right: 20px;
+}
+
+/* 标签样式 */
+.article-tags {
+    margin: 15px 0;
+}
+
+.article-tags .tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 4px 8px;
+    margin: 2px 4px 2px 0;
+    border-radius: 3px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.article-tags .tag:hover {
+    background-color: #e0e0e0;
+}
+
+/* 文章内容样式 */
+.article-content {
+    line-height: 1.8;
+    margin: 30px 0;
+}
+
+.article-content h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.article-content h3 {
+    margin-top: 25px;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.article-content p {
+    margin: 15px 0;
+}
+
+.article-content ul, .article-content ol {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.article-content li {
+    margin: 8px 0;
+}
+
+.article-content blockquote {
+    border-left: 4px solid #ddd;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    font-style: italic;
+}
+
+.article-content code {
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
+.article-content pre {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.article-content pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+/* 文章底部样式 */
+.article-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.article-footer .article-summary {
+    color: #666;
+    font-style: italic;
+}
+
+/* 返回链接样式增强 */
+.back-link {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.back-link a {
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 8px 15px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    font-family: "SimSun", "宋体", serif;
+}
+
+.back-link a:hover {
+    background-color: black;
+    color: white;
+}
+
 @media (max-width: 768px) {
     body {
         font-size: 16px;
@@ -126,5 +261,17 @@ body {
     
     .top-1 a {
         font-size: 28px;
+    }
+    
+    .article-header .article-meta .date,
+    .article-header .article-meta .author {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    
+    .back-link a {
+        display: block;
+        margin: 5px 0;
     }
 }

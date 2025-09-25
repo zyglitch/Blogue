@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ARTICLE_TITLE}} - Sept3rd的空间</title>
+    <link rel="stylesheet" href="../css/page-style.css">
+    <meta name="description" content="{{ARTICLE_SUMMARY}}">
+    <meta name="keywords" content="{{ARTICLE_TAGS}}">
+    <meta name="author" content="{{ARTICLE_AUTHOR}}">
+    <meta name="date" content="{{ARTICLE_DATE}}">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-1">
+        <a href="index.html">Sept3rd的空间</a>
+    </div>
+    <div class="top-2">
+        <a href="index.html">主页</a>
+        <a href="articles.html">文章</a>
+        <a href="about.html">关于</a>
+    </div>
+    
+    <!-- 文章内容区 -->
+    <div class="content-container">
+        <!-- 文章头部信息 -->
+        <div class="article-header">
+            <h1>{{ARTICLE_TITLE}}</h1>
+            <div class="article-meta">
+                <span class="date">发布于 {{ARTICLE_DATE_DISPLAY}}</span>
+                <span class="author">作者: {{ARTICLE_AUTHOR}}</span>
+            </div>
+            {{ARTICLE_TAGS_HTML}}
+        </div>
+        
+        <!-- 文章正文内容 -->
+        <div class="article-content">
+            {{ARTICLE_CONTENT}}
+        </div>
+        
+        <!-- 文章底部信息 -->
+        <div class="article-footer">
+            <p class="article-summary"><strong>摘要：</strong>{{ARTICLE_SUMMARY}}</p>
+        </div>
+    </div>
+    
+    <!-- 返回链接 -->
+    <div class="back-link">
+        <a href="index.html">返回主页</a>
+        <a href="articles.html">文章列表</a>
+    </div>
+</body>
+</html>

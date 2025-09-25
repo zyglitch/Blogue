@@ -1,0 +1,45 @@
+博客生成器 - 使用说明
+====================
+
+恭喜！您的Java博客生成器已成功打包为Windows可执行文件！
+
+📁 文件结构：
+- BlogGenerator/                    # 主程序目录
+  ├── BlogGenerator.exe            # 主程序（可直接双击运行）
+  ├── app/                         # 应用程序文件
+  └── runtime/                     # Java运行时环境
+- BlogGenerator-Launcher.bat       # 启动脚本（推荐使用）
+
+🚀 运行方式：
+
+方式1：双击运行（推荐）
+- 直接双击 BlogGenerator-Launcher.bat
+- 或者进入 BlogGenerator 文件夹，双击 BlogGenerator.exe
+
+方式2：命令行运行
+- 打开命令提示符或PowerShell
+- 进入项目目录
+- 运行：.\BlogGenerator\BlogGenerator.exe
+
+📝 使用步骤：
+1. 双击启动程序
+2. 在图形界面中选择Markdown文件
+3. 点击"生成HTML"按钮
+4. 查看生成的HTML文件（在html/目录下）
+5. 使用同步脚本将文件部署到服务器
+
+📂 生成的文件：
+- HTML文件：保存在 html/ 目录
+- 文章索引：自动更新 js/articles.js
+
+🔧 部署到服务器：
+- 使用 sync-articles.ps1 脚本进行同步
+- 或使用 deploy-to-server.bat 批处理脚本
+- 详细说明请查看 README-部署指南.md
+
+💡 提示：
+- 程序已包含完整的Java运行时，无需额外安装Java
+- 可以将整个BlogGenerator文件夹复制到其他Windows电脑使用
+- 如遇问题，请检查防火墙和杀毒软件设置
+
+🎉 现在您可以像使用普通Windows软件一样使用博客生成器了！

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客部署指南 - Sept3rd's Blog</title>
+    <link rel="stylesheet" href="../css/page-style.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <a href="../html/index.html">Sept3rd's Blog</a>
+            </div>
+            <div class="nav-links">
+                <a href="../html/index.html">首页</a>
+                <a href="../html/articles.html">文章</a>
+                <a href="../html/about.html">关于</a>
+            </div>
+        </nav>
+
+        <!-- 文章内容 -->
+        <article class="article-content">
+            <header class="article-header">
+                <h1 class="article-title">博客部署指南</h1>
+                <div class="article-meta">
+                    <span class="article-author">作者: Sept3rd</span>
+                    <span class="article-date">发布时间: 2025年09月25日</span>
+                    <span class="article-date-raw" style="display:none;">2025-09-25</span>
+                    
+                </div>
+                <div class="article-summary">
+                    <p>本指南说明如何将Java桌面应用生成的博客文章部署到服务器上。</p>
+                </div>
+            </header>
+            
+            <div class="article-body">
+                <h1 id="博客部署指南">博客部署指南</h1>
+<h2 id="-概述">📋 概述</h2>
+<p>本指南说明如何将Java桌面应用生成的博客文章部署到服务器上。</p>
+<h2 id="-文件结构">🏗️ 文件结构</h2>
+<pre><code>
+blog/
+
+├── blog-generator/          # Java桌面应用生成的文件
+
+│   ├── html/               # 生成的HTML文章文件
+
+│   ├── js/                 # 更新的articles.js索引
+
+│   └── templates/          # HTML模板
+
+├── html/                   # 主博客HTML文件目录
+
+├── css/                    # 样式文件
+
+├── js/                     # JavaScript文件
+
+├── img/                    # 图片资源
+
+├── deploy-to-server.bat    # Windows批处理同步脚本
+
+├── sync-articles.ps1       # PowerShell同步脚本
+
+└── README-部署指南.md      # 本文档
+
+</code></pre>
+<h2 id="-部署方式">🚀 部署方式</h2>
+<h3 id="方式一使用powershell脚本推荐">方式一：使用PowerShell脚本（推荐）</h3>
+<h4 id="基本使用">基本使用</h4>
+<pre><code class="language-powershell">
+# 在blog目录下运行
+
+.\sync-articles.ps1
+
+</code></pre>
+<h4 id="高级使用">高级使用</h4>
+<pre><code class="language-powershell">
+# 预览模式（不实际复制文件）
+
+.\sync-articles.ps1 -DryRun
+
+  
+
+# 跳过服务器上传
+
+.\sync-articles.ps1 -SkipUpload
+
+  
+
+# 指定服务器信息
+
+.\sync-articles.ps1 -ServerHost &quot;192.168.1.100&quot; -ServerUser &quot;username&quot;
+
+</code></pre>
+<h3 id="方式二使用批处理脚本">方式二：使用批处理脚本</h3>
+<p>双击运行 <code>deploy-to-server.bat</code> 文件，按提示操作。</p>
+<h3 id="方式三手动同步">方式三：手动同步</h3>
+<ol>
+<li><strong>复制HTML文件</strong><br />\n   ```</li>
+</ol>
+<p>   从：blog-generator\html*.html</p>
+<p>   到：blog\html\</p>
+<p>   ```</p>
+<ol start="2">
+<li><strong>更新文章索引</strong></li>
+</ol>
+<p> ```</p>
+<p>   从：blog-generator\js\articles.js</p>
+<p>   到：blog\js\articles.js</p>
+<p>   ```</p>
+<ol start="3">
+<li><strong>上传到服务器</strong></li>
+</ol>
+<p>   - 使用FTP客户端</p>
+<p>   - 使用SCP命令</p>
+<p>   - 使用rsync同步</p>
+<h2 id="-工作流程">🔄 工作流程</h2>
+<h3 id="日常使用流程">日常使用流程</h3>
+<ol>
+<li><strong>创建新文章</strong><br />\n   - 编写Markdown文件</li>
+</ol>
+<p>   - 使用Java桌面应用生成HTML</p>
+<ol start="2">
+<li><strong>本地同步</strong><br />\n   - 运行同步脚本</li>
+</ol>
+<p>   - 检查生成的文件</p>
+<ol start="3">
+<li><strong>服务器部署</strong></li>
+</ol>
+<p>   - 选择合适的上传方式</p>
+<p>   - 执行文件同步</p>
+<h3 id="首次部署">首次部署</h3>
+<ol>
+<li><strong>准备服务器环境</strong></li>
+</ol>
+<p>   ```bash</p>
+<p>   # 在服务器上创建博客目录</p>
+<p>   mkdir -p /var/www/html/blog</p>
+<p>   chmod 755 /var/www/html/blog</p>
+<p>   ```</p>
+<ol start="2">
+<li><strong>上传完整博客</strong></li>
+</ol>
+<p>   ```bash</p>
+<p>   # 使用SCP上传整个博客目录</p>
+<p>   scp -r d:\study_code\web\blog* username@server:/var/www/html/blog/</p>
+<p>   ```</p>
+<ol start="3">
+<li><strong>配置Web服务器</strong></li>
+</ol>
+<p>   - 确保服务器支持静态文件访问</p>
+<p>   - 配置正确的文档根目录</p>
+<h2 id="-服务器同步选项">📡 服务器同步选项</h2>
+<h3 id="scp上传推荐">SCP上传（推荐）</h3>
+<pre><code class="language-bash">
+# 上传整个博客目录
+
+scp -r &quot;d:\study_code\web\blog\*&quot; username@server:/var/www/html/blog/
+
+  
+
+# 只上传HTML文件
+
+scp &quot;d:\study_code\web\blog\html\*.html&quot; username@server:/var/www/html/blog/html/
+
+  
+
+# 只上传articles.js
+
+scp &quot;d:\study_code\web\blog\js\articles.js&quot; username@server:/var/www/html/blog/js/
+
+</code></pre>
+<h3 id="rsync同步">rsync同步</h3>
+<pre><code class="language-bash">
+# 完整同步（删除服务器上多余文件）
+
+rsync -avz --delete &quot;d:\study_code\web\blog/&quot; username@server:/var/www/html/blog/
+
+  
+
+# 只同步特定目录
+
+rsync -avz &quot;d:\study_code\web\blog/html/&quot; username@server:/var/www/html/blog/html/
+
+</code></pre>
+<h3 id="ftp上传">FTP上传</h3>
+<p>使用FTP客户端（如FileZilla）：</p>
+<ol>
+<li>
+<p>连接到服务器</p>
+</li>
+<li>
+<p>导航到博客目录</p>
+</li>
+<li>
+<p>上传修改的文件</p>
+</li>
+</ol>
+<h2 id="-自动化部署">🔧 自动化部署</h2>
+<h3 id="使用git-hooks">使用Git Hooks</h3>
+<pre><code class="language-bash">
+# 在服务器上设置Git仓库
+
+git init --bare /var/git/blog.git
+
+  
+
+# 创建post-receive钩子
+
+#!/bin/bash
+
+cd /var/www/html/blog
+
+git --git-dir=/var/git/blog.git --work-tree=/var/www/html/blog checkout -f
+
+</code></pre>
+<h3 id="使用cicd">使用CI/CD</h3>
+<ul>
+<li>
+<p>GitHub Actions</p>
+</li>
+<li>
+<p>GitLab CI</p>
+</li>
+<li>
+<p>Jenkins</p>
+</li>
+</ul>
+<h2 id="-故障排除">🛠️ 故障排除</h2>
+<h3 id="常见问题">常见问题</h3>
+<ol>
+<li><strong>权限问题</strong></li>
+</ol>
+<p>   ```bash</p>
+<p>   # 修复文件权限</p>
+<p>   chmod -R 644 /var/www/html/blog/*</p>
+<p>   chmod -R 755 /var/www/html/blog/*/</p>
+<p>   ```</p>
+<ol start="2">
+<li><strong>路径问题</strong></li>
+</ol>
+<p>   - 检查脚本中的路径配置</p>
+<p>   - 确保目录存在</p>
+<ol start="3">
+<li><strong>编码问题</strong></li>
+</ol>
+<p>   - 确保文件使用UTF-8编码</p>
+<p>   - 检查中文字符显示</p>
+<h3 id="日志检查">日志检查</h3>
+<pre><code class="language-bash">
+# 检查Web服务器日志
+
+tail -f /var/log/nginx/access.log
+
+tail -f /var/log/apache2/access.log
+
+</code></pre>
+<h2 id="-注意事项">📝 注意事项</h2>
+<ol>
+<li><strong>备份重要文件</strong></li>
+</ol>
+<p>   - 定期备份articles.js</p>
+<p>   - 备份自定义样式文件</p>
+<ol start="2">
+<li><strong>版本控制</strong></li>
+</ol>
+<p>   - 使用Git管理博客源码</p>
+<p>   - 标记重要版本</p>
+<ol start="3">
+<li><strong>性能优化</strong></li>
+</ol>
+<p>   - 压缩CSS和JS文件</p>
+<p>   - 优化图片大小</p>
+<p>   - 启用Gzip压缩</p>
+<ol start="4">
+<li><strong>安全考虑</strong></li>
+</ol>
+<p>   - 使用SSH密钥认证</p>
+<p>   - 限制文件上传权限</p>
+<p>   - 定期更新服务器</p>
+<h2 id="-最佳实践">🎯 最佳实践</h2>
+<ol>
+<li><strong>开发流程</strong></li>
+</ol>
+<p>   - 本地测试 → 生成文章 → 同步文件 → 部署服务器</p>
+<ol start="2">
+<li><strong>文件管理</strong></li>
+</ol>
+<p>   - 保持目录结构一致</p>
+<p>   - 使用有意义的文件名</p>
+<p>   - 定期清理无用文件</p>
+<ol start="3">
+<li><strong>监控部署</strong></li>
+</ol>
+<p>   - 检查部署后的网站功能</p>
+<p>   - 验证新文章是否正确显示</p>
+<p>   - 测试文章链接和导航</p>
+
+            </div>
+        </article>
+
+        <!-- 返回按钮 -->
+        <div class="back-to-articles">
+            <a href="../html/articles.html" class="back-btn">← 返回文章列表</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Sept3rd's Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
