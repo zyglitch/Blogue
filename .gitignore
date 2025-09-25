@@ -2,6 +2,9 @@
 blog-generator/target/
 blog-generator/BlogGenerator/
 
+# 排除大文件
+blog-generator/BlogGenerator/runtime/lib/modules
+
 # IDE 文件
 .idea/
 *.iml
