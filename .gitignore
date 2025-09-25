@@ -1,9 +1,11 @@
+# 博客生成器目录（仅保留在本地）
+blog-generator/
+
 # Maven 构建目录
-blog-generator/target/
-blog-generator/BlogGenerator/
+target/
 
 # 排除大文件
-blog-generator/BlogGenerator/runtime/lib/modules
+BlogGenerator/runtime/lib/modules
 
 # IDE 文件
 .idea/
